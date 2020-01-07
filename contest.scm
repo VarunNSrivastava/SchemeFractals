@@ -1,26 +1,9 @@
-;;; Scheme Recursive Art Contest Entry
-;;;
-;;; Please do not include your name or personal info in this file.
-;;;
-;;; Title: Hope in Uncertainity, a lesson from Uncle Iroh
-;;;
-;;; Description:
-;;;    "Even in the dark
-;;;    keep moving forward; you shall
-;;;    reach a better place"
+;;; Title: Yin Yang Fractals
+;;;   by Varun Neal Srivastava
 
-(bgcolor "#ff0000")
+(bgcolor "#070e21")
 ;(define pi 3.14159)
 (speed 0)
-
-; you'll notice the code below is a ghost town -
-; there is a LOT of commented out code.
-; this is because I tried a lot of different
-; ideas before settling on the current design.
-; If, for whatever reason, you are interested in
-; some of these alt-designs, you will have to do
-; a some amount of recoding. I apologize in advance
-; for the minimal documentation
 
 ; gets the num'th object in a lst
 (define (access-color lst num)
@@ -79,18 +62,9 @@
 
           (inner (* 0.25 radius) (- depth 1) colors)
 
-          (print `("at depth " ,depth " at position 1, my position is " ,(get_position)))
-          (display "\n")
-
           (move-cart 0 (* -0.875 radius))
 
-
           (inner (* 0.25 radius) (- depth 1) colors)
-
-          (print `("at depth " ,depth " at position 2, my position is " ,(get_position)))
-          (display "\n")
-
-
 
         )
       )
@@ -158,6 +132,37 @@
 ;)
 
 
+
+;(define (make-tendrils radius num count)
+;  (if (and (< count (+ num 1)) (> num 1))
+;    (begin
+      ;(block-move `( 0 ,(* 0.65 radius)))
+;      (define rup (* (cos (/ (* 6.282 count) num)) radius))
+;      (define rright (* (sin (/ (* -6.282 count) num)) radius))
+;      (block-move `(,rup ,rright))
+
+      ;(define colors (get-color radius num count))
+
+      ; a highly chaotic function of three parameters - psuedorandom
+      ;(define (change param) (cos (abs (sin (tan param)))))
+      ;(define sum (+ radius num count))
+      ;(define p1 (change (+ sum 0.2)))
+      ;(define p2 (change sum))
+      ;(define p3 (change (+ sum 0.4)))
+
+;      (make-fractal (* radius 0.33) 3 (rgb p1 p2  p3) (rgb (half p3) (half p2) (half p1)))
+
+;      (make-tendrils (* radius 0.33) (half num) 0)
+
+;      (block-move `(,(- rup) ,(- (/ radius 4) rright)))
+;      (make-tendrils radius num (+ count 1))
+
+      ;'(1)
+;    )
+    ;'(1)
+;  )
+;)
+
 ; makes [total tendrils] "tendrils" for a circle of [radius], with
 ; 3 tendrils each of their own, which goes on for [its] - [min-its]
 ; layers, each tendril 1/4 the size of the prior
@@ -212,24 +217,22 @@
   ;(make-background 8)
 
   ; draws the inner white-black yin-yang
-  (make-fractal 200 3 `("#ffffff" "#000000"))
-  (display (get_position))
+  (make-fractal 200 5 `("#ffffff" "#000000"))
   ; draws the first orbit of yin-yang "tendrils"
-  ;(make-tendrils 200 8 0 6 2)
-  ;(left 22.5)
+  (make-tendrils 200 8 0 6 2)
+  (left 22.5)
   ; draws the second orbit of yin-yang "tendrils"
-  ;(make-tendrils 300 8 0 5 1)
-  ;(left 22.5)
+  (make-tendrils 300 8 0 5 1)
+  (left 22.5)
   ; draws the third orbit of yin-yang "tendrils"
-  ;(make-tendrils 420 4 0 4 0)
+  (make-tendrils 420 4 0 4 0)
 
 
   (exitonclick)
-  (color "#ffffff")
 )
 
 
-;(ht)
+(ht)
 ; Please leave this last line alone.  You may add additional procedures above
 ; this line.
 (draw)
