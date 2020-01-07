@@ -14,4 +14,4 @@ The code can be easily modified to create slightly different fractals, such as t
 
 ![image](https://i.imgur.com/o1jKb5j.png)
 
-The interpreter for Scheme was created in Python as part of a project for the class CS61a at UC Berkeley. The code for the Turtle commands was provided by the class. The documentation within the code provides some structure as to how to create different fractals. 
+The interpreter for Scheme was created in Python as part of a project for the class CS61a at UC Berkeley. The code for the Turtle commands was provided by the class. All of the Turtle commands used can be found in the ``scheme_builtins.py`` file. The documentation within the code provides some structure as to how to create different fractals. 
